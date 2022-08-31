@@ -5,15 +5,14 @@ class Tomato:
 
     def __init__(self, index):
         self.index = index
-        self.states = ('Отсутствует', 'Цветение', 'Зеленый', 'Красный')
-        self.ripeness = self.states[index]
+        self.ripeness = self.states[0]
 
     def grow(self):
         if self.ripeness < self.states[3]:
             self.ripeness += 1
 
     def is_ripe(self):
-        if self.ripeness == 'Красный':
+        if self.ripeness == self.states[3]:
             return True
         else:
             return False

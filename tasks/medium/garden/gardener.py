@@ -4,17 +4,20 @@ class Gardener:
 
     def __init__(self, name, *args):
         self.name = name
-        self.plants = [*args]
+        self.plants = []
+        for arg in args:
+            self.plants.append(arg)
 
     def work(self):
-        for args in self.plants:
-            args.grow_all()
+        for tomato_bush in self.plants:
+            tomato_bush.grow_all()
 
     def harvest(self):
-        if all([args.all_are_ripe for args in self.plants]):
+        if all([tomato_bush.all_are_ripe for tomato_bush in self.plants]):
             result = []
             for i in self.plants:
                 result += i.give_away_all()
             return result
         else:
-            return None, print("Томаты еще не созрели")
+            print("Томаты еще не созрели")
+            return None
